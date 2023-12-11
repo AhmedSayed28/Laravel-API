@@ -13,12 +13,13 @@ trait apiResponseTrait
         ], $code);
     }
 
-    public function apiError($errors, $code = 400, $message = null)
+    public function apiError($errors, $message = null, $code = 404)
     {
         return response()->json([
             'success' => false,
             'message' => $message,
-            'errors' => $errors
-        ], $code);
+            'errors' => $errors,
+            'status code' => $code
+        ]);
     }
 }
